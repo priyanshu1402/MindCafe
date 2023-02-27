@@ -3,7 +3,7 @@ import React from 'react'
 import { View, StyleSheet, Image, TextInput, Text, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 
-export const Login = () => {
+export const Login = ({navigation}) => {
     const [text, onChangeText] = React.useState();
     const [number, onChangeNumber] = React.useState('');
   return (
@@ -27,7 +27,7 @@ export const Login = () => {
         placeholder="Password"
       />
       </View>
-      <TouchableOpacity  >
+      <TouchableOpacity onPress={()=>{navigation.navigate("Home")}}>
         <View style={style.CreateButton}>
 
         <Text style={style.createtext}>Login</Text>

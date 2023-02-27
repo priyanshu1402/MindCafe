@@ -11,14 +11,15 @@ import {
   Image
 } from 'react-native';
 
-function CreateAccount() {
+function CreateAccount({navigation}) {
+
   return (
-    <View>
+    <View style={style.box}>
       <Image source={require('../images/medi1.png')} style={style.medi1} />
       <Text style={style.Resolvetext}>Resolve all your mental</Text>
       <Text style={style.problemtext}>PROBLEM</Text>
       <Text style={style.taketext}>Take a breath, let’s get started</Text>
-      <TouchableOpacity  >
+      <TouchableOpacity onPress={()=>{navigation.navigate("Register")}}>
         <View style={style.CreateButton}>
 
         <Text style={style.createtext}>Create Account</Text>
@@ -30,15 +31,18 @@ function CreateAccount() {
   )
 }
 const style = StyleSheet.create({
+  box:{
+    backgroundColor:'#FDECE4',
+    flex:1
+  },
   medi1: {
     position: 'relative',
     width: 385,
-    height: 544,
-
+    height: 504,
   },
   Resolvetext: {
     fontSize: 24,
-    top: -70,
+    top: -80,
     position: 'relative',
     textAlign: 'center',
     color: '#000000'

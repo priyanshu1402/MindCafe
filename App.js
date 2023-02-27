@@ -16,7 +16,7 @@ import { Register } from './screens/Register';
 import Navbar from './component/navbar';
 import HomePage from './screens/HomePage';
 import BottomNav from './component/BottomNav';
-import {NavigationContainer} from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import {
   SafeAreaView,
   ScrollView,
@@ -26,7 +26,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   Colors,
   DebugInstructions,
@@ -39,7 +39,7 @@ import {
  * LTI update could not be added via codemod */
 
 
-const App: () => Node = () => {
+const App = ({ navigation }) => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
@@ -48,22 +48,18 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  const Stack = createNativeStackNavigator();
   return (
-    <LinearGradient colors={['#FAEDE4', '#FAEDE4']} style={{height:'100%'}}>
-
-      <SafeAreaView style={styles.sectionContainer}>
-        <NavigationContainer>
-
-        {/* <Login/> */}
-        {/* <Register/> */}
-        {/* <Navbar/> */}
-        {/* <HomePage/> */}
-        <BottomNav/>
-        </NavigationContainer>
-        
-
-      </SafeAreaView>
+    <LinearGradient colors={['#FAEDE4', '#FAEDE4']} style={{ height: '100%' }}>
+      <NavigationContainer >
+        <Stack.Navigator screenOptions={{ headerShown: false }} >
+          <Stack.Screen name='Create' component={CreateAccount} />
+          <Stack.Screen name='Register' component={Register} />
+          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen name='Home' component={BottomNav} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* <HomePage/> */}
     </LinearGradient>
   );
 };

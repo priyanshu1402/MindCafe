@@ -12,19 +12,8 @@ const Tab = createBottomTabNavigator();
 export default class BottomNav extends Component {
   render() {
     return (
-        <Tab.Navigator
-        tabBarOptions={{
-            showLabel:false,
-            style:{}
-        }}
-        >
-        <Tab.Screen name="home" component={HomePage} options={{
-            tabBarIcon:({focused})=>{
-                <View style={{ borderWidth:2, borderColor:'#000000', height:10, width:10, alignItems:'center'}}>
-                    <Text>hee</Text>
-                </View>
-            }
-        }}/>
+        <Tab.Navigator>
+        <Tab.Screen name="home" component={HomePage} />
         <Tab.Screen name="Book" component={Books} />
         <Tab.Screen name="Massege" component={Masseges} />
         <Tab.Screen name="Teacher" component={Teacher} />

@@ -3,7 +3,7 @@ import React from 'react'
 import { View, StyleSheet, Image, TextInput, Text, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 
-export const Register = () => {
+export const Register = ({navigation}) => {
     const [text, onChangeText] = React.useState();
     const [number, onChangeNumber] = React.useState('');
   return (
@@ -45,7 +45,7 @@ export const Register = () => {
         placeholder="Password"
       />
       </View>
-      <TouchableOpacity  >
+      <TouchableOpacity  onPress={()=>{navigation.navigate("Login")}}>
         <View style={style.SignUpButton}>
 
         <Text style={style.SignUptext}>Sign Up</Text>
@@ -60,13 +60,13 @@ const style= StyleSheet.create({
         width:228,
         height:96,
         left:64,
-        top:74,
+        top:60,
 
     },
     input:{
         width:289,
         height:61,
-        top:200,
+        top:180,
         left:35,
         borderRadius:20,
         backgroundColor:'#F8F8F8',
@@ -97,7 +97,7 @@ const style= StyleSheet.create({
         left:75,
         height:64,
         borderRadius:25,
-        top:240,
+        top:180,
       },
       SignUptext:{
         color:'#fff',
@@ -107,7 +107,7 @@ const style= StyleSheet.create({
       alreadytext:{
         textAlign:'center',
         fontSize:16,
-        top:250,
+        top:210,
     
       },
       signintext:{

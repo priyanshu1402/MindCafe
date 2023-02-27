@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../component/navbar';
 import List from '../component/List';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -12,13 +13,14 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-function HomePage() {
+function HomePage({navigation}) {
   return (
     <View>
         <Navbar/>
         <List/>
+
     </View>
   )
 }
 
-export default HomePage
+export default HomePage;
